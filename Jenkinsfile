@@ -13,7 +13,7 @@ pipeline {
           steps {
             powershell(script: 'hostname', returnStdout: true, returnStatus: true)
             sleep 1
-            sh 'echo "Done"'
+            cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true, cleanWhenAborted: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true, disableDeferredWipeout: true)
           }
         }
 
