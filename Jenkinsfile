@@ -17,6 +17,12 @@ pipeline {
           }
         }
 
+        stage('Hostname2') {
+          steps {
+            powershell(script: 'hostname', returnStdout: true)
+          }
+        }
+
       }
     }
 
