@@ -26,5 +26,11 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        bat(script: 'dir', returnStdout: true, returnStatus: true)
+      }
+    }
+
   }
 }
