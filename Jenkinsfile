@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Hostname') {
           steps {
-            myvar=(powershell(script: 'hostname', returnStatus: true, returnStdout: true, label: 'labelname')).trim
+            step {myvar=(powershell(script: 'hostname', returnStatus: true, returnStdout: true, label: 'labelname')).trim}
           }
         }
 
