@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Begin') {
       steps {
-        powershell 'echo "hi %name% how are you?"'
+        powershell 'echo "hi env:name how are you?"'
       }
     }
 
