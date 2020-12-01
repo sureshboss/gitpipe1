@@ -3,7 +3,13 @@ pipeline {
   stages {
     stage('Begin') {
       steps {
-        powershell '$name=$env:name;echo "hi $name how are you?"'
+        powershell(script: '$name=$env:name;echo "hi $name how are you?"', label: 'msg')
+      }
+    }
+
+    stage('print') {
+      steps {
+        echo '${msg}'
       }
     }
 
