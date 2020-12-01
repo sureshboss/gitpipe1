@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Hostname') {
           steps {
-            powershell(script: 'hostname', returnStatus: true, returnStdout: true, label: 'labelname')
+            myvar=(powershell(script: 'hostname', returnStatus: true, returnStdout: true, label: 'labelname')).trim
           }
         }
 
@@ -13,6 +13,7 @@ pipeline {
           steps {
             powershell(script: 'hostname', returnStdout: true, returnStatus: true)
             sleep 1
+            echo myvar
             cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true, cleanWhenAborted: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true, disableDeferredWipeout: true)
           }
         }
