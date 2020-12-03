@@ -13,10 +13,17 @@ pipeline {
       }
     }
 
+    stage('check') {
+      steps {
+        mail(subject: 'test', body: 'test success', to: 'sureshd@hexaware.com')
+      }
+    }
+
   }
   environment {
     name = 'suresh'
     team = 'raiseit2.0'
     dept = 'imsauto'
+    servername = ''
   }
 }
