@@ -15,7 +15,7 @@ pipeline {
 
     stage('check') {
       steps {
-        mail(subject: 'test', body: 'test success', to: 'sureshd@hexaware.com')
+        powershell(script: '$disk = Get-WmiObject Win32_LogicalDisk -Filter "DeviceID=\'C:\'" |  Select-Object Size,FreeSpace ;echo ((($disk.FreeSpace)/$disk.Size)*100)', returnStdout: true)
       }
     }
 
